@@ -9,7 +9,6 @@
   "jsxSingleQuote": true,
   "bracketSpacing": true,
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
-  "importOrderSeparation": true,
+  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "@components/(.*)$", "^[./]"],
   "importOrderSortSpecifiers": true
 }
