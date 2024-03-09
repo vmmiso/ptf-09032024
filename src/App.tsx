@@ -5,10 +5,8 @@ import { mainTheme } from './theme';
 const App = () => {
   return (
     <ThemeProvider theme={mainTheme}>
-      <div>
-        <Header />
-        Marvel App
-      </div>
+      <Header />
+      Marvel App
     </ThemeProvider>
   );
 };
