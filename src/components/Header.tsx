@@ -8,14 +8,13 @@ const Header = styled.header`
 `;
 
 const Container = styled.div`
-  height: 84px;
+  height: 100%;
   max-width: ${({ theme }) => theme.sizes.maxPageWidth};
   margin: 0 auto;
   padding: 0px 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.black};
 `;
 
 const Navbar = () => {
