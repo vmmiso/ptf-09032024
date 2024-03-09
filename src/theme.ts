@@ -7,4 +7,7 @@ export const mainTheme: DefaultTheme = {
     red: '#EC1D24',
     grey: '#AAAAAA',
   },
+  sizes: {
+    maxPageWidth: '1512px',
+  },
 };

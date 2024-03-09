@@ -8,5 +8,8 @@ declare module 'styled-components' {
       red: string;
       grey: string;
     };
+    sizes: {
+      maxPageWidth: string;
+    };
   }
 }
