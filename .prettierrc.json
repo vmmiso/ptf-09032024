@@ -13,10 +13,12 @@
     "^@core/(.*)$",
     "^@server/(.*)$",
     "^@ui/(.*)$",
+    "@apis/(.*)$",
     "@pages/(.*)$",
     "@components/(.*)$",
     "@hooks/(.*)$",
     "@assets/(.*)$",
+    "@interfaces(.*)$",
     "^[./]"
   ],
   "importOrderSortSpecifiers": true
