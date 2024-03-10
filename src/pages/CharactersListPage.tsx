@@ -1,8 +1,8 @@
-import { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 import CharactersCardList from '@components/CharactersCardList';
 import SearchBar from '@components/SearchBar';
 import useCharacters from '@hooks/useCharacters';
+import { useSearchParamsState } from '@hooks/useSearchParamsState';
 
 const SearchWrapper = styled.div`
   height: 77px;
@@ -19,10 +19,10 @@ const SearchResultsLabel = styled.span`
 `;
 
 const CharactersListPage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useSearchParamsState('search', '');
   const { data, isLoading, isError } = useCharacters(searchTerm);
 
-  const handleSubmitSearch = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmitSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
       searchBar: { value: string };
