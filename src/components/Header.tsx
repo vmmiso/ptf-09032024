@@ -11,10 +11,14 @@ const Container = styled.div`
   height: 100%;
   max-width: ${({ theme }) => theme.sizes.maxPageWidth};
   margin: 0 auto;
-  padding: 0px 48px;
+  padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (width > 600px) {
+    padding: 0 48px;
+  }
 `;
 
 const Navbar = () => {

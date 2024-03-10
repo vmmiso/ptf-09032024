@@ -16,7 +16,7 @@ interface Data {
   results: Character[];
 }
 
-interface Character {
+export interface Character {
   id: number;
   name: string;
   description: string;
