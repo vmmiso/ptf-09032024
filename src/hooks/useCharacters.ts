@@ -5,7 +5,11 @@ import { CharactersResponse } from '@interfaces';
 const fetchCharacters = async (name?: string, limit = 50) => {
   // const { ts, apiKey, hash } = getCredentials();
   const { data } = await api.get(`/public/characters`, {
-    params: { ...getCredentials(), nameStartsWith: name, limit },
+    params: {
+      ...getCredentials(),
+      ...(name && name.length > 0 && { nameStartsWith: name }),
+      limit,
+    },
   });
   return data;
 };
