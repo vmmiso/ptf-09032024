@@ -17,6 +17,10 @@ const Main = styled.main`
   }
 `;
 
+const Footer = styled.footer`
+  height: 50px;
+`;
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -32,6 +36,7 @@ const App = () => {
               <Route path='*' element={<div>Not found</div>} />
             </Routes>
           </Main>
+          <Footer />
         </BrowserRouter>
       </QueryClientProvider>
     </ThemeProvider>
