@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { useFavsContext } from '@contexts/FavsContext';
 import ComicsCardList from '@components/ComicsCardList';
+import FavIcon from '@components/FavIcon';
 import useCharacter from '@hooks/useCharacter';
 import useCharacterComics from '@hooks/useCharacterComics';
 
@@ -87,6 +89,14 @@ const Sect = styled.div`
       line-height: 47px;
     }
   }
+
+  button {
+    color: ${({ theme }) => theme.colors.red};
+    background: none;
+    padding-top: 6px;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 const ComicsSection = styled.section`
@@ -108,16 +118,16 @@ const ComicsSection = styled.section`
 
 const CharacterDetailsPage = () => {
   const { id } = useParams();
-
   const { data, isLoading, isError } = useCharacter(id || '404');
   const { data: data2 } = useCharacterComics(id || '404');
-
-  const character = data?.data.results[0];
-  const comics = data2?.data.results;
+  const { favIds, handleFavorites } = useFavsContext();
 
   if (isLoading) return <div>Loading...</div>;
 
   if (isError || !data) return <div>Error</div>;
+
+  const character = data?.data.results[0];
+  const comics = data2?.data.results;
 
   return (
     <Main>
@@ -133,7 +143,9 @@ const CharacterDetailsPage = () => {
           <Sect>
             <div>
               <h2 title={character?.name}>{character?.name}</h2>
-              <span>XX</span>
+              <button onClick={() => handleFavorites(character.id)} aria-label='handle favorite'>
+                <FavIcon isFav={favIds?.includes(character.id)} />
+              </button>
             </div>
             <p>{character?.description}</p>
             <div />

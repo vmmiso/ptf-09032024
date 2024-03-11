@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useFavsContext } from '@contexts/FavsContext';
 import { Character } from '@interfaces/characters';
+import FavIcon from './FavIcon';
 
 const CharacterCardLink = styled(Link)`
   position: relative;
@@ -44,8 +46,23 @@ const CharacterData = styled.div`
   align-items: center;
   padding: 0 8.5%;
 
+  svg {
+    color: ${({ theme }) => theme.colors.red};
+  }
+
   ${CharacterCardLink}:hover & {
     background-position: 0 0;
+
+    svg {
+      color: ${({ theme }) => theme.colors.white};
+    }
+  }
+
+  button {
+    background: none;
+    padding-top: 5px;
+    border: none;
+    cursor: pointer;
   }
 `;
 
@@ -66,6 +83,14 @@ type CharacterCardProps = {
 };
 
 const CharacterCard = ({ character }: CharacterCardProps) => {
+  const { favIds, handleFavorites } = useFavsContext();
+
+  const handleFavoritesClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    handleFavorites(character.id);
+  };
+
   return (
     <CharacterCardLink to={`/character/${character.id}`}>
       <img
@@ -74,13 +99,9 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
       />
       <CharacterData>
         <CharacterName title={character.name}>{character.name}</CharacterName>
-        <div
-          style={{
-            height: '12px',
-            width: '12px',
-            backgroundColor: 'red',
-          }}
-        />
+        <button onClick={handleFavoritesClick} aria-label='handle favorite'>
+          <FavIcon size='12' isFav={favIds?.includes(character.id)} />
+        </button>
       </CharacterData>
     </CharacterCardLink>
   );
