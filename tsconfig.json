@@ -12,7 +12,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
       "@apis/*": ["src/apis/*"],
-      "@interfaces/*": ["src/interfaces/*"]
+      "@interfaces/*": ["src/interfaces/*"],
+      "@contexts/*": ["src/contexts/*"]
     },
 
     /* Bundler mode */
