@@ -6,8 +6,10 @@ export const mainTheme: DefaultTheme = {
     white: '#FFFFFF',
     red: '#EC1D24',
     grey: '#AAAAAA',
+    darkGrey: '#333333',
   },
   sizes: {
     maxPageWidth: '1512px',
+    maxDetailsPageWidth: '960px',
   },
 };

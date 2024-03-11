@@ -7,9 +7,11 @@ declare module 'styled-components' {
       white: string;
       red: string;
       grey: string;
+      darkGrey: string;
     };
     sizes: {
       maxPageWidth: string;
+      maxDetailsPageWidth: string;
     };
   }
 }
