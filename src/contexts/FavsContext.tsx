@@ -29,9 +29,5 @@ export const FavsContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 export const useFavsContext = () => {
   const context = useContext(FavsContext);
 
-  if (context === undefined) {
-    throw new Error('useFavsContext was used outside of its Provider');
-  }
-
   return context;
 };
