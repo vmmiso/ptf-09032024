@@ -4,6 +4,13 @@ import SearchBar from '@components/SearchBar';
 import useCharacters from '@hooks/useCharacters';
 import { useSearchParamsState } from '@hooks/useSearchParamsState';
 
+const Main = styled.main`
+  height: 100%;
+  max-width: ${({ theme }) => theme.sizes.maxPageWidth};
+  margin: 0 auto;
+  padding: 0 16px;
+`;
+
 const SearchWrapper = styled.div`
   height: 77px;
   padding-top: 24px;
@@ -31,7 +38,7 @@ const CharactersListPage = () => {
   };
 
   return (
-    <>
+    <Main>
       <SearchWrapper>
         <SearchBar handleSubmit={handleSubmitSearch} />
         {!isLoading && (
@@ -45,7 +52,7 @@ const CharactersListPage = () => {
       ) : (
         <CharactersCardList characters={data.data.results} />
       )}
-    </>
+    </Main>
   );
 };
 
