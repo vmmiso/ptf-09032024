@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Character } from '@interfaces';
+import { Character } from '@interfaces/characters';
 import CharacterCard from './CharacterCard';
 
 const CharactersList = styled.div`

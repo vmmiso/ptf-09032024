@@ -12,7 +12,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
       "@apis/*": ["src/apis/*"],
-      "@interfaces": ["src/interfaces"]
+      "@interfaces/*": ["src/interfaces/*"]
     },
 
     /* Bundler mode */

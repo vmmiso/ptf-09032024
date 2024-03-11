@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Character } from 'src/interfaces/characters';
 import styled from 'styled-components';
+import { Character } from '@interfaces/characters';
 
 const CharacterCardLink = styled(Link)`
   position: relative;
