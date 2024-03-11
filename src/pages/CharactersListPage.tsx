@@ -9,6 +9,7 @@ const Main = styled.main`
   max-width: ${({ theme }) => theme.sizes.maxPageWidth};
   margin: 0 auto;
   padding: 0 16px;
+  margin-bottom: 40px;
 `;
 
 const SearchWrapper = styled.div`
