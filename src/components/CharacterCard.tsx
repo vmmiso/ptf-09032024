@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+import { Character } from 'src/interfaces/characters';
 import styled from 'styled-components';
-import { Character } from '@interfaces';
 
 const CharacterCardLink = styled(Link)`
   position: relative;
@@ -10,14 +10,14 @@ const CharacterCardLink = styled(Link)`
     display: block;
     padding-top: 130%;
   }
-`;
 
-const CharacterImg = styled.img`
-  height: 75%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  object-fit: cover;
+  img {
+    height: 75%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+  }
 `;
 
 const CharacterData = styled.div`
@@ -68,7 +68,7 @@ type CharacterCardProps = {
 const CharacterCard = ({ character }: CharacterCardProps) => {
   return (
     <CharacterCardLink to={`/character/${character.id}`}>
-      <CharacterImg
+      <img
         src={character.thumbnail.path?.concat('.', character.thumbnail.extension)}
         alt={`${character.name} thumbnail`}
       />
