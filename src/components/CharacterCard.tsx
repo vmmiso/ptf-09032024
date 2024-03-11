@@ -99,7 +99,7 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
       />
       <CharacterData>
         <CharacterName title={character.name}>{character.name}</CharacterName>
-        <button onClick={handleFavoritesClick} aria-label='handle favorite'>
+        <button onClick={handleFavoritesClick} aria-label='handle favorite' role='handle-fav'>
           <FavIcon size='12' isFav={favIds?.includes(character.id)} />
         </button>
       </CharacterData>
