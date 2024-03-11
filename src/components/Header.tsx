@@ -5,6 +5,7 @@ const Header = styled.header`
   width: 100%;
   height: 84px;
   background-color: ${({ theme }) => theme.colors.black};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.darkGrey};
 `;
 
 const Container = styled.div`
@@ -15,10 +16,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  @media (width > 600px) {
-    padding: 0 48px;
-  }
 `;
 
 const Navbar = () => {
