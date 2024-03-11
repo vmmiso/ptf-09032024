@@ -118,8 +118,10 @@ const ComicsSection = styled.section`
 
 const CharacterDetailsPage = () => {
   const { id } = useParams();
+  // TODO: validate id
   const { data, isLoading, isError } = useCharacter(id || '404');
-  const { data: data2 } = useCharacterComics(id || '404');
+  // TODO: validate errors
+  const { data: dataComics } = useCharacterComics(id || '404');
   const { favIds, handleFavorites } = useFavsContext();
 
   if (isLoading) return <div>Loading...</div>;
@@ -127,7 +129,7 @@ const CharacterDetailsPage = () => {
   if (isError || !data) return <div>Error</div>;
 
   const character = data?.data.results[0];
-  const comics = data2?.data.results;
+  const comics = dataComics?.data.results;
 
   return (
     <Main>
