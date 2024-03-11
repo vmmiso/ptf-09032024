@@ -45,7 +45,7 @@ const CharactersListPage = ({ favorites = false }: CharactersListPageProps) => {
     const target = e.target as typeof e.target & {
       searchBar: { value: string };
     };
-    setSearchTerm(target.searchBar.value);
+    setSearchTerm(target.searchBar?.value);
   };
 
   const characters =
