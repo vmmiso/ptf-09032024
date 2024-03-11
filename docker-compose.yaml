@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web-ptf09032024:
+    container_name: 'web-ptf09032024'
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    expose:
+      - '80'
+    environment:
+      - VIRTUAL_HOST=ptf09032024.marcomiso.com
+      - LETSENCRYPT_HOST=ptf09032024.marcomiso.com
+    networks:
+      - 'nginx-proxy'
+
+networks:
+  nginx-proxy:
+    external: true

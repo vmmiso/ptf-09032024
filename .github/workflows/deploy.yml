@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  production:
+    name: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: deploying through ssh key access
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /home/${{ secrets.SSH_USER }}/dockers/webs
+            git clone https://oauth2:${{ secrets.GH_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
+            cd ${{ github.event.repository.name }}
+            git fetch
+            git switch main
+            git pull
+            docker compose stop
+            docker compose rm
+            docker compose -f docker-compose.yaml up --build -d
+            exit
