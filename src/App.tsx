@@ -18,6 +18,7 @@ const App = () => {
             <Header />
             <Routes>
               <Route path='/' element={<CharactersListPage />} />
+              <Route path='/favorites' element={<CharactersListPage favorites />} />
               <Route path='character/:id' element={<CharacterDetailsPage />} />
               <Route path='*' element={<div>Not found</div>} />
             </Routes>
