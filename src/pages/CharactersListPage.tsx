@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useFavsContext } from '@contexts/FavsContext';
 import CharactersCardList from '@components/CharactersCardList';
 import SearchBar from '@components/SearchBar';
+import Spinner from '@components/Spinner';
 import useCharacters from '@hooks/useCharacters';
 import { useSearchParamsState } from '@hooks/useSearchParamsState';
 
@@ -61,7 +62,7 @@ const CharactersListPage = ({ favorites = false }: CharactersListPageProps) => {
         {!isLoading && <SearchResultsLabel>{characters.length || 0} RESULTS</SearchResultsLabel>}
       </SearchWrapper>
       {isLoading ? (
-        <div>Loading...</div>
+        <Spinner />
       ) : isError || !data ? (
         <div>Error</div>
       ) : (
