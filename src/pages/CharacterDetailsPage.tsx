@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useFavsContext } from '@contexts/FavsContext';
 import ComicsCardList from '@components/ComicsCardList';
 import FavIcon from '@components/FavIcon';
+import Spinner from '@components/Spinner';
 import useCharacter from '@hooks/useCharacter';
 import useCharacterComics from '@hooks/useCharacterComics';
 
@@ -124,8 +125,9 @@ const CharacterDetailsPage = () => {
   const { data: dataComics } = useCharacterComics(id || '404');
   const { favIds, handleFavorites } = useFavsContext();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spinner />;
 
+  // TODO: errors page
   if (isError || !data) return <div>Error</div>;
 
   const character = data?.data.results[0];
